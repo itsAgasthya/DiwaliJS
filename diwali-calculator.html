@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Diwali Sweets Calculator</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Diwali Sweets Calculator</h1>
+        <p>Calculate the total cost of your Diwali sweets!</p>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="mouse-events.html">Mouse Events</a></li>
+            <li><a href="diwali-calculator.html">Diwali Calculator</a></li>
+            <li><a href="registration-form.html">Registration Form</a></li>
+            <li><a href="security.html">Security</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section class="center">
+            <h2>Diwali Sweets Calculator</h2>
+            <div id="section-border">
+            <p>Enter the quantity of each sweet you want to buy:</p>
+            <div class="center" style="margin: 10px 0">
+                <label for="kajuKatli">Kaju Katli (₹1000 per kg):</label>
+                <input type="number" id="kajuKatli" value="0" min="0">
+            </div>
+            <div class="center" style="margin: 10px 0">
+                <label for="jalebis">Jalebi (₹500 per kg):</label>
+                <input type="number" id="jalebis" value="0" min="0">
+            </div>
+            <div class="center" style="margin: 10px 0">
+                <label for="rasMalai">Rasmalai (₹200 per kg):</label>
+                <input type="number" id="rasMalai" value="0" min="0">
+            </div>
+            <button id="calculate-btn" type="submit">Calculate</button>
+            <p id="total-cost" class="result">Total Cost: ₹0</p>
+        </div>
+        </section>
+    </main>
+    <script>
+
+        document.getElementById('calculate-btn').addEventListener('click', function() {
+            const kajuPrice = 1000;
+            const jalebiPrice = 500; 
+            const malaiPrice = 200; 
+        
+            const kajuKatli = parseInt(document.getElementById('kajuKatli').value);
+            const jalebis = parseInt(document.getElementById('jalebis').value);
+            const rasMalai = parseInt(document.getElementById('rasMalai').value);
+        
+            const totalCost = (kajuKatli * kajuPrice) + (jalebis * jalebiPrice) + (rasMalai * malaiPrice);
+        
+            document.getElementById('total-cost').textContent = `Total Cost: ₹${totalCost}`;
+        });
+        </script>
+</body>
+</html>

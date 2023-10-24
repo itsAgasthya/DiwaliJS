@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Diwali Security Page</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Diwali Security Applications</h1>
+        <p>Explore security features and applications for a safe Diwali celebration!</p>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="mouse-events.html">Mouse Events</a></li>
+            <li><a href="diwali-calculator.html">Diwali Calculator</a></li>
+            <li><a href="registration-form.html">Registration Form</a></li>
+            <li><a href="security.html">Security</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section class="center">
+            <h2>Security Applications</h2>
+            <div id="section-border">
+                <h3>Complete the CAPTCHA:</h3>
+                <div id="captcha"></div>
+                <input type="text" id="captcha-input" placeholder="Enter the CAPTCHA">
+                <button id="check-captcha" type="submit">Check</button>
+                <p id="captcha-result" class="result"></p>
+            </div>
+
+            <div id="hidden-forms">
+                <input type="text" name="username" style="display: none;">
+                <input type="password" name="password" style="display: none;">
+            </div>
+
+        </section>
+    </main>
+    <script>
+
+        // Function to generate a random CAPTCHA
+        function generateCaptcha() {
+            const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+            let captcha = '';
+            for (let i = 0; i < 6; i++) {
+                captcha += characters.charAt(Math.floor(Math.random() * characters.length));
+            }
+            return captcha;
+        }
+        
+        // Function to initialize CAPTCHA
+        function initCaptcha() {
+            const captcha = generateCaptcha();
+            document.getElementById('captcha').textContent = captcha;
+        }
+        
+        // Function to check if the entered text matches the CAPTCHA
+        document.getElementById('check-captcha').addEventListener('click', function () {
+            const captcha = document.getElementById('captcha').textContent;
+            const input = document.getElementById('captcha-input').value;
+            if (input === captcha) {
+                document.getElementById('captcha-result').textContent = 'CAPTCHA matched!';
+            } else {
+                document.getElementById('captcha-result').textContent = 'CAPTCHA does not match. Please try again.';
+            }
+        });
+        
+        // Initialize CAPTCHA
+        initCaptcha();
+        // Hidden Forms (Trap for bots)
+        const hiddenForms = document.getElementById('hidden-forms');
+        const usernameField = hiddenForms.querySelector('[name="username"]');
+        const passwordField = hiddenForms.querySelector('[name="password"]');
+
+        usernameField.value = '';
+        passwordField.value = '';
+
+        // Session Time (Check for bot-like behavior)
+        const startTime = new Date().getTime();
+        function checkSessionTime() {
+            const currentTime = new Date().getTime();
+            const elapsedTime = (currentTime - startTime) / 1000; // in seconds
+
+            if (elapsedTime < 2) {
+                alert('Session time is too short. This could be a bot.');
+            }
+        }
+
+        document.getElementById('registration-form').addEventListener('submit', function(event) {
+            checkSessionTime();
+        });
+
+        /*
+        let mouseMovementCount = 0;
+
+        document.addEventListener('mousemove', function() {
+            mouseMovementCount++;
+            if (mouseMovementCount > 50) {
+                alert('Unusual mouse activity detected. This could be a bot.');
+                // You can take further action like blocking the request.
+            }
+        });
+
+        // Capture key strokes (Check for suspicious key strokes)
+        let keystrokeCount = 0;
+
+        document.addEventListener('keydown', function() {
+            keystrokeCount++;
+            if (keystrokeCount > 10) {
+                alert('Suspicious key strokes detected. This could be a bot.');
+                // You can take further action like blocking the request.
+            }
+        });
+        */
+        </script>
+</body>
+</html>

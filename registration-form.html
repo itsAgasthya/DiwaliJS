@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Diwali Event Registration</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Diwali Event Registration</h1>
+        <p>Register for our college's Diwali celebration event!</p>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="mouse-events.html">Mouse Events</a></li>
+            <li><a href="diwali-calculator.html">Diwali Calculator</a></li>
+            <li><a href="registration-form.html">Registration Form</a></li>
+            <li><a href="security.html">Security</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section class="center">
+            <h2>Participant Registration</h2>
+            <div id="section-border">
+            <form id="registration-form">
+                <div class="form-group">
+                    <label for="full-name">Full Name:</label>
+                    <input type="text" id="full-name" name="full-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number:</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="college">College/University:</label>
+                    <input type="text" id="college" name="college" required>
+                </div>
+                <button type="submit">Register</button>
+            </form>
+            </div>
+        </section>
+    </main>
+    <script>
+    document.getElementById('registration-form').addEventListener('submit', function (event) {
+        const fullName = document.getElementById('full-name').value;
+        const email = document.getElementById('email').value;
+        const phone = document.getElementById('phone').value;
+        const college = document.getElementById('college').value;
+    
+        if (!fullName || !email || !phone || !college) {
+            alert('Please fill in all fields before submitting the form.');
+            event.preventDefault();
+        } else {
+            alert('Thank you for registering! We look forward to seeing you at the Diwali event.');
+        }
+    });
+    </script>
+</body>
+</html>

@@ -1,0 +1,157 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    background-color: #000; /* Dark background color */
+    font-family: Arial, sans-serif;
+    color: #ffedc2; 
+  }
+  
+  header {
+    background-color: #e59e45; /* Diwali-related color */
+    text-align: center;
+    padding: 20px;
+  }
+  
+  header h1 {
+    font-size: 36px;
+  }
+  
+  nav ul {
+    background-color: #e59e45; /* Diwali-related color */
+    list-style-type: none;
+    padding-bottom: 10px;
+    text-align: center;
+  }
+  
+  nav li {
+    display: inline;
+    margin: 0 20px;
+  }
+  
+  nav a {
+    position: relative;
+    text-decoration: none;
+    color: #ffedc2;
+  }
+
+  nav a::before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #ffedc2;
+    transition: 0.3s;
+  }
+  nav a:hover::before {
+    width: 100%;
+  }
+  
+  main {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #1a1a1a; /* Dark content background */
+    border-radius: 10px; /* Rounded corners */
+  }
+  
+  h2,h3 {
+    color: #e59e45;
+  }
+  
+  .center {
+    text-align: center;
+  }
+
+  .show-image {
+    font-size: 30px;
+    display: inline-block;
+  }
+
+  canvas{
+    position:absolute;
+    left:0;
+    top:0;
+    z-index:-1;
+  }
+  
+  .diwali-element {
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+    margin: 20px;
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+  
+  label {
+    font-weight: bold;
+    color: #e59e45; 
+    display: block;
+  }
+  
+  input[type="number"] {
+    width: 50px;
+    padding: 5px;
+    font-size: 16px;
+    text-align: center;
+    border: 2px solid #e59e45;  
+    border-radius: 5px;
+  }
+     
+  .form-group {
+    margin: 20px 0;
+    text-align: left;
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #e59e45;
+    border-radius: 5px;
+  }
+  
+  button[type="submit"] {
+    background-color: #e59e45; /* Diwali-related color */
+    color: #ffedc2;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #ffcc00; /* Hover color change */
+  }
+  
+  #section-border {
+    margin: 20px;
+    padding: 20px;
+    background-color: #1c1c1c; 
+    border: 2px solid #e59e45; 
+    border-radius: 10px; 
+  }
+  
+  #captcha {
+    font-size: 20px;
+    font-weight: bold;
+    color: #e59e45; /* Diwali-related color */
+    margin: 10px 0;
+  }
+  
+  .result {
+    font-size: 18px;
+    font-weight: bold;
+    color: #e59e45;
+    margin: 10px 0;
+  }
